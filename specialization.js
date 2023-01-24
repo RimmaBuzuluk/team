@@ -17,13 +17,14 @@ let cost = {};
 function calculateTeamFinanceReport(salaries, team) {
   var lengthSalaries = Object.keys(salaries).length;
   var lengthTean = team.length;
+  // console.log(Object.values(salaries)[2].tax.match(/-\d+/));
 
-  for (let i = 0; i < lengthSalaries - 1; i++) {
+  for (let i = 0; i < lengthSalaries; i++) {
     if (
-      Object.values(salaries)[i].tax.match(/\d+/) >= 99 &&
-      Object.values(salaries)[i].tax.match(/\d+/) <= 0
+      Object.values(salaries)[i].tax.match(/\d+/) >= 99 ||
+      Object.values(salaries)[i].tax.match(/-\d+/) !== null
     ) {
-      return false;
+      return console.error("you have a rong percent");
     }
   }
 
@@ -53,7 +54,7 @@ function calculateTeamFinanceReport(salaries, team) {
     console.log(cost);
     return cost;
   } else {
-    return false;
+    return console.error("you have to big team or salaries");
   }
 }
 calculateTeamFinanceReport(salaries1, team1);
