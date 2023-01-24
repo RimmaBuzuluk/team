@@ -52,6 +52,8 @@ function calculateTeamFinanceReport(salaries, team) {
 
     console.log(cost);
     return cost;
+  } else {
+    return false;
   }
 }
 calculateTeamFinanceReport(salaries1, team1);
